@@ -62,3 +62,11 @@ Route::get('/template',[StudentController::class, 'ShowTemplate']);
 
 //Route de middleware
 Route::get('check/role',[StudentController::class,'checkRole'])->middleware('roleType');
+
+Route::get('/register',function (){
+    return view('Student.form');
+});
+
+Route::get('/admin',function (){
+   return view('admin.dashboard');
+});
