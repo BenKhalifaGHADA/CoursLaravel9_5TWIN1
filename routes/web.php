@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\StudentController;
+use \App\Http\Controllers\ModuleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,3 +71,20 @@ Route::get('/register',function (){
 Route::get('/admin',function (){
    return view('admin.dashboard');
 });
+
+
+Route::get('/cours',[ModuleController::class,'affiche'])->name('module.affiche');
+Route::get('/module/{id}',[ModuleController::class,'show'])->name('module.show');
+Route::delete('/modules/{id}',[ModuleController::class,'destroy'])->name('module.destroy');
+
+Route::get('/modules/create',[ModuleController::class,'create'])->name('module.create');
+Route::post('/modules/store',[ModuleController::class,'store'])->name('module.store');
+
+Route::resource('/module2',\App\Http\Controllers\Module2Controller::class);
+
+// Afficher le formulaire de modification
+Route::get('/modules/{id}/edit', [ModuleController::class,'edit'])->name('modules.edit');
+
+// Traitement de la soumission du formulaire de modification
+Route::put('/modules/update/{id}', [ModuleController::class,'update'])->name('modules.update');
+
