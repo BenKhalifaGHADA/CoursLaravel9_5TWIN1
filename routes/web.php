@@ -88,3 +88,5 @@ Route::get('/modules/{id}/edit', [ModuleController::class,'edit'])->name('module
 // Traitement de la soumission du formulaire de modification
 Route::put('/modules/update/{id}', [ModuleController::class,'update'])->name('modules.update');
 
+Route::resource('/product',\App\Http\Controllers\ProductController::class);
+Route::resource('/category',\App\Http\Controllers\CategoryController::class);
